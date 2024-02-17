@@ -26,4 +26,26 @@ The program enters at `logid.cpp`. The program immediately loads the config file
 
 Fuzzing `__config_read` sounds difficult. I'm going to try fuzzing the `readfile` function to start.
 
+I've written `harness.cpp` just to see if I can compile the project through it rather than `logid.cpp`. I've made changes to the logid `CMakeLists.txt` file for this.
+
+make is throwing this stinker:
+```
+[100%] Linking CXX executable ../../harness
+/usr/bin/ld: CMakeFiles/harness.dir/backend/raw/RawDevice.cpp.o: warning: relocation against `_ZN5logid15global_loglevelE' in read-only section `.text'
+/usr/bin/ld: CMakeFiles/harness.dir/util/log.cpp.o: in function `logid::logPrintf(logid::LogLevel, char const*, ...)':
+log.cpp:(.text+0x72): undefined reference to `logid::global_loglevel'
+/usr/bin/ld: CMakeFiles/harness.dir/features/RemapButton.cpp.o: in function `logid::features::RemapButton::RemapButton(logid::Device*)':
+RemapButton.cpp:(.text+0x5430): undefined reference to `logid::global_loglevel'
+/usr/bin/ld: CMakeFiles/harness.dir/backend/raw/RawDevice.cpp.o: in function `logid::backend::raw::RawDevice::_readReports()':
+RawDevice.cpp:(.text+0x112c): undefined reference to `logid::global_loglevel'
+/usr/bin/ld: RawDevice.cpp:(.text+0x116a): undefined reference to `logid::global_loglevel'
+/usr/bin/ld: CMakeFiles/harness.dir/backend/raw/RawDevice.cpp.o: in function `logid::backend::raw::RawDevice::sendReport(std::vector<unsigned char, std::allocator<unsigned char> > const&)':
+RawDevice.cpp:(.text+0x1e6d): undefined reference to `logid::global_loglevel'
+/usr/bin/ld: warning: creating DT_TEXTREL in a PIE
+collect2: error: ld returned 1 exit status
+make[2]: *** [src/logid/CMakeFiles/harness.dir/build.make:1010: harness] Error 1
+make[1]: *** [CMakeFiles/Makefile2:170: src/logid/CMakeFiles/harness.dir/all] Error 2
+make: *** [Makefile:136: all] Error 2
+```
+
 

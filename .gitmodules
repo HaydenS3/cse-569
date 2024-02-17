@@ -4,3 +4,6 @@
 [submodule "fuzzing/logiops"]
 	path = fuzzing/logiops
 	url = git@github.com:PixlOne/logiops.git
+[submodule "fuzzing/logiops-fuzzing"]
+	path = fuzzing/logiops-fuzzing
+	url = git@github.com:HaydenS3/logiops-fuzzing.git
