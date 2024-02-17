@@ -1,0 +1,6 @@
+[submodule "fuzzing/AFLplusplus"]
+	path = fuzzing/AFLplusplus
+	url = git@github.com:AFLplusplus/AFLplusplus.git
+[submodule "fuzzing/logiops"]
+	path = fuzzing/logiops
+	url = git@github.com:PixlOne/logiops.git

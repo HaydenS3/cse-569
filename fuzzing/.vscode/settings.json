@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.h++": "cpp"
+    },
+    "cmake.configureOnOpen": false
+}
