@@ -56,10 +56,17 @@ Use [dictionary](https://github.com/AFLplusplus/AFLplusplus/blob/stable/dictiona
 
 Compile binary with AFL fuzzer:
 ```
-CC=/home/hayden/applications/AFLplusplus/afl-clang-fast CXX=/home/hayden/applications/AFLplusplus/afl-clang-fast++ cmake ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/home/hayden/applications/AFLplusplus/afl-clang-fast -DCMAKE_CXX_COMPILER=/home/hayden/applications/AFLplusplus/afl-clang-fast++ ..
 make
 ```
 
+Make says: WARNING: You are using outdated instrumentation, install LLVM and/or gcc-plugin and use afl-clang-fast/afl-clang-lto/afl-gcc-fast instead!
+
 Create and mount ramdisk
 
-Run AFL: `~/applications/AFLplusplus/afl-fuzz -i ../logiops-fuzzing/seeds/logid.example.cfg -o output/ -m 2000 -- harness @@`. This throws an error for some reason.
+Run AFL: ` ~/applications/AFLplusplus/afl-fuzz -i ~/repos/cse-569/fuzzing/logiops-fuzzing -o output/ -m 2000 -- ~/repos/cse-569/fuzzing/logiops-fuzzing/build/harness @@ `. This throws an error for some reason. `afl-fuzz: error while loading shared libraries: libpython3.11.so.1.0: cannot open shared object file: No such file or directory`
+
+Running `export LD_LIBRARY_PATH=/home/hayden/applications/miniconda3/pkgs/python-3.11.5-h955ad1f_0/lib/libpython3.11.so.1.0` fixed this issue.
+
+
+
