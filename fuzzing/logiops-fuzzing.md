@@ -26,7 +26,7 @@ The program enters at `logid.cpp`. The program immediately loads the config file
 
 Fuzzing `__config_read` sounds difficult. I'm going to try fuzzing the `readfile` function to start.
 
-I've written `harness.cpp` just to see if I can compile the project through it rather than `logid.cpp`. I've made changes to the logid `CMakeLists.txt` file for this.
+I've written `/src/logid/harness.cpp` just to see if I can compile the project through it rather than `logid.cpp`. I've made changes to the logid `CMakeLists.txt` file for this.
 
 make is throwing this stinker:
 ```
@@ -48,4 +48,18 @@ make[1]: *** [CMakeFiles/Makefile2:170: src/logid/CMakeFiles/harness.dir/all] Er
 make: *** [Makefile:136: all] Error 2
 ```
 
+I fixed it with some changes to harness.cpp!
 
+Going to try fuzzing with AFL++ in LLVM mode. Got everything built and ready to go!
+
+Use [dictionary](https://github.com/AFLplusplus/AFLplusplus/blob/stable/dictionaries/README.md) to better refine fuzzing?
+
+Compile binary with AFL fuzzer:
+```
+CC=/home/hayden/applications/AFLplusplus/afl-clang-fast CXX=/home/hayden/applications/AFLplusplus/afl-clang-fast++ cmake ..
+make
+```
+
+Create and mount ramdisk
+
+Run AFL: `~/applications/AFLplusplus/afl-fuzz -i ../logiops-fuzzing/seeds/logid.example.cfg -o output/ -m 2000 -- harness @@`. This throws an error for some reason.
