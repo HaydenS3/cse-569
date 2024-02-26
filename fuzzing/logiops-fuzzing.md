@@ -60,7 +60,7 @@ cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/home/hayden/applications/AF
 make
 ```
 
-Make says: WARNING: You are using outdated instrumentation, install LLVM and/or gcc-plugin and use afl-clang-fast/afl-clang-lto/afl-gcc-fast instead!
+`make` says: WARNING: You are using outdated instrumentation, install LLVM and/or gcc-plugin and use afl-clang-fast/afl-clang-lto/afl-gcc-fast instead!
 
 Create and mount ramdisk
 
