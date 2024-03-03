@@ -64,9 +64,10 @@ make
 
 Create and mount ramdisk
 
-Run AFL: ` ~/applications/AFLplusplus/afl-fuzz -i ~/repos/cse-569/fuzzing/logiops-fuzzing -o output/ -m 2000 -- ~/repos/cse-569/fuzzing/logiops-fuzzing/build/harness @@ `. This throws an error for some reason. `afl-fuzz: error while loading shared libraries: libpython3.11.so.1.0: cannot open shared object file: No such file or directory`
+Run AFL: `~/applications/AFLplusplus/afl-fuzz -i ~/repos/cse-569/fuzzing/logiops-fuzzing/seeds -o output/ -m 2000 -- ~/repos/cse-569/fuzzing/logiops-fuzzing/build/harness @@`. This throws an error for some reason. `afl-fuzz: error while loading shared libraries: libpython3.11.so.1.0: cannot open shared object file: No such file or directory`
 
-Running `export LD_LIBRARY_PATH=/home/hayden/applications/miniconda3/pkgs/python-3.11.5-h955ad1f_0/lib/libpython3.11.so.1.0` fixed this issue.
+Running `sudo apt install python3.11-dev` fixed this issue.
 
+AFL++ detects "ParseException" as a crash. Added try catch in harness to ignore this exception.
 
-
+It's working now and not crashing all the time. Now it's time to optimize AFL++ and run it for a while.
