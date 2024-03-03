@@ -91,3 +91,7 @@ I used the default configuration file provided within the logiops project as a s
 I used AFL++ to fuzz the target.
 
 `~/applications/AFLplusplus/afl-fuzz -i ~/repos/cse-569/fuzzing/logiops-fuzzing/seeds -o output/ -m 2000 -- ~/repos/cse-569/fuzzing/logiops-fuzzing/build/harness @@`
+
+![fuzzing](fuzzing.png)
+
+I ran the fuzzer for 10.5 hours overnight and found no crashes. The fuzzer also had no new finds over the course of the night. This is likely due to the fuzzer not forming a valid config file a vast majority of the time. Continuing this project, I'd like to use a [dictionary](https://github.com/AFLplusplus/AFLplusplus/blob/stable/dictionaries/README.md) to make the fuzzer more effective. In addition, I'd like to try instumenting the target with a sanitizer.
