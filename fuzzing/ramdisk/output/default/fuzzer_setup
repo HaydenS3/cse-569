@@ -1,6 +1,0 @@
-# environment variables:
-AFL_CUSTOM_INFO_PROGRAM=/home/hayden/repos/cse-569/fuzzing/logiops-fuzzing/build/harness
-AFL_CUSTOM_INFO_PROGRAM_ARGV=@@
-AFL_CUSTOM_INFO_OUT=output//default
-# command line:
-'/home/hayden/applications/AFLplusplus/afl-fuzz' '-i' '/home/hayden/repos/cse-569/fuzzing/logiops-fuzzing/seeds' '-o' 'output/' '-m' '2000' '--' '/home/hayden/repos/cse-569/fuzzing/logiops-fuzzing/build/harness' '@@'
