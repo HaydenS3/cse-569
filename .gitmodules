@@ -7,3 +7,6 @@
 [submodule "fuzzing/logiops-fuzzing"]
 	path = fuzzing/logiops-fuzzing
 	url = git@github.com:HaydenS3/logiops-fuzzing.git
+[submodule "deepfake-detection/Lab2_deepfake_detection"]
+	path = deepfake-detection/Lab2_deepfake_detection
+	url = git@github.com:VivianYuan12138/Lab2_deepfake_detection.git
