@@ -4,12 +4,25 @@ Hayden Schroeder - April 2024
 
 ## Adversarial Machine Learning Overview
 
-Describe the overview of the how adversarial machine learning works. For example, what is the high-level idea of adversarial machine learning, what is common methodology and how it works, what are the assumptions, etc.
+The adversarial machine learning works by creating an adversarial model which is trained to generate adversarial examples that can fool the target model.
 
 ## Implementation and Experiment
 
-Please follow the instructions in the Google doc and demonstrate each step of your implementation here. For the students who develop their own methodology, please explain your design and implementations.
+
+### Initial setup
+
+![Setup 1](setup-1.png)
+
+![Setup 2](setup-2.png)
+
+### Testing the target model
+
+![Predictions](predictions.jpg)
+
+### Training the adversarial model
+
+![Training](20240422-212636_base_106.png)
 
 ## Conclusion and Limitations
 
-Please describe your experiments during the class and your critical thinking on the limitations. For example, what do you think can be further improved in order to achieve better attacks? What are potential defenses for such attacks?
+Running out of colab compute hours became a huge issue for me. I was unable to finish the lab in time due to this constraint.
